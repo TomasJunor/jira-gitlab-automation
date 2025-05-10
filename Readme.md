@@ -1,61 +1,51 @@
-# Deployment Automation
+# Jira + GitLab Automation Script 🚀
 
-Scripts para automatizar el proceso de despliegue de tickets de Jira a GitLab:
+Automate your dev team's workflow with this Node.js script that connects **Jira** and **GitLab** to streamline ticket tracking and merge request creation.
 
-- Obtener tickets de Jira que esten "Ready to Release" y crear un MR en GitLab
-- Trackear los tickets de Jira que fueron mergeados y agregar etiquetas
-- Etiquetar los tickets de Jira con la version de despliegue y "Deployed" una vez que el build haya sido exitoso
+## 🔧 What It Does
+- Checks Jira for tickets in specific workflow stages
+- Automatically creates Merge Requests in GitLab for relevant tickets
+- Updates ticket statuses to reflect progress
+- Saves time, reduces human error, and improves team flow
 
----
+## 🧰 Tech Stack
+- Node.js
+- Axios
+- dotenv
 
-## 📋 Prerequisites
-
-- GitLab Personal Access Token (`GITLAB_TOKEN`)  
-- Jira credentials (`JIRA_USER` + `JIRA_TOKEN`) 
-- Variables de entorno en `.env`  
-
----
+## ⚙️ Setup
+1. Clone this repo
+2. Run `npm install`
+3. Create a `.env` file with your Jira/GitLab credentials and project info
+4. Customize your workflow settings (see `config.js`)
+5. Run with: `node index.js`
 
 ## ⚙️ Environment Variables
 
 | Name                         | Description                                                        |
 |------------------------------|--------------------------------------------------------------------|
-| `GITLAB_BASE_URL`            | e.g. `https://gitlab.globallogic.com/api/v4/`                      |
+| `GITLAB_BASE_URL`            | e.g. `https://gitlab.com/api/v4/`                                  |
 | `GITLAB_TOKEN`               | Personal Access Token                                              |
-| `JIRA_URL`                   | e.g. `https://globallogic-velocity.atlassian.net/`                 |
+| `JIRA_URL`                   | e.g. `https://atlassian.net/`                                      |
 | `JIRA_USER`, `JIRA_TOKEN`    | Basic auth para la API de Jira                                     |
-| `JIRA_REQUEST_JQL`           | JQL para buscar tickets que necesiten MR                           |
+| `JIRA_REQUEST_JQL`           | JQL to search for tickets that need MR                             |
 | `JIRA_REQUEST_FIELDS`        | Comma-separated fields, e.g. `summary,assignee,labels,parent`      |
 | `TICKETS_FILE_NAME`          | (opcional) store local de tickets, default `tickets.json`          |
 | `LOG_LEVEL`                  | (opcional) `debug`/`info`/`warn`/`error` (default: `info`)         |
 | `DRY_RUN`                    | (`true` or `false`) skip actual writes/API calls                   |
-
----
-
-## 🚀 Installation
-
-1. Clonar repo
-2. `npm install`
-3. Cargar el `.env`
-
----
+| `DISCORD_WEBHOOK_URL`        | Discord Webhook URL to send notifications                          |
 
 ## 🧰 Usage
 
 All commands are exported scripts — you can run them directly:
-Todos los comandos son scripts independientes — se pueden ejecutar directamente:
 
 ```bash
 # Create MRs for Jira tickets:
 node createMRsForTicketsReadyToRelease.js
 
-# Agrega label "Merged" a los tickets mergeados:
+# Add label "Merged" a to merged tickets:
 node validateMergedTickets.js
 
-# Despues de un deploy de Jenkins, agrega FixVersion y Label “Deployed” a los tickets:
+# After a deploy (Jenkins), Adds FixVersion and Label “Deployed” to Tickets:
 node addFixVersionToDeployedTickets.js
 ```
-
-ToDOs:
-4. Dar aviso a Jira cuando se despliega un ticket.
-5. Campos de Jenkis con valores default pero dinamico.
