@@ -49,3 +49,19 @@ node validateMergedTickets.js
 # After a deploy (Jenkins), Adds FixVersion and Label “Deployed” to Tickets:
 node addFixVersionToDeployedTickets.js
 ```
+
+
+## 🤔 Why Use This?
+Tired of:
+
+- Manually creating Merge Requests for every task?
+
+- Forgetting to update Jira tickets?
+
+- Spending more time managing your flow than coding?
+
+This script was built to solve those headaches.
+
+# 👨‍💻 Built By
+[Tomas Junor](https://github.com/TomasJunor) – Fullstack Developer & Automation Enthusiast
+
