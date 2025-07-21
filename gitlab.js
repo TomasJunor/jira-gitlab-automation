@@ -34,7 +34,7 @@ async function findBranchesAndCreateMRs(ticket) {
       const filteredMRList = existingMRs.filter(mr => mr.project_id == projectId && mr.source_branch.includes(branch.name) && mr.target_branch === 'release');
 
       if (filteredMRList.length > 0) {
-        logger.info(`⚠️ el MR ya existe para el branch ${branch.name} en el pryoecto ${projectId}`);
+        logger.info(`⚠️ el MR ya existe para el branch ${branch.name} en el proyecto ${projectId}`);
         continue;
       }
 
