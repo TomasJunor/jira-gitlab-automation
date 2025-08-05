@@ -4,7 +4,7 @@ This file outlines expectations for the different roles involved in this project
 
 ## Developers
 - Follow JavaScript ES module conventions and keep code readable.
-- Run `npm test` and lint checks before committing changes.
+- Run `npm test` if there are tests, and lint checks before committing changes.
 - Use clear commit messages and small, focused pull requests.
 
 ## Business Analysts (BA)
@@ -21,28 +21,11 @@ This file outlines expectations for the different roles involved in this project
 - Manage environment variables and secrets securely.
 - Ensure logging and alerting are configured for all deployments.
 
-## Architects (Arq)
+## Architects
 - Review design proposals for scalability, security, and maintainability.
 - Keep architectural diagrams and documentation current.
 - Provide guidance on technology choices and system integration patterns.
 
-## Project Managers
-- Coordinate cross-team communication and track milestones.
-- Remove impediments and ensure risks are documented.
-
-## Product Owners
-- Prioritize backlog items and clarify feature goals.
-- Validate that delivered features provide business value.
-
-## UX/UI Designers
+<!-- ## UX/UI Designers
 - Deliver user flows and interface designs that align with product goals.
-- Collaborate with developers to ensure a consistent user experience.
-
-## Security
-- Perform periodic security reviews and dependency audits.
-- Flag and help remediate vulnerabilities promptly.
-
-## Support
-- Communicate user-reported issues to the team.
-- Document common problems and their resolutions for future reference.
-
+- Collaborate with developers to ensure a consistent user experience. -->
